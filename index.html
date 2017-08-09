@@ -24,20 +24,65 @@
 		<script type="text/javascript" src="src/jquery.valient360.js"></script>
 
 		<script type="text/javascript">
+			// Variable for storing data
 			var playerData = {};
+			var playerData.latArray = {};
+			var playerData.lonArray = {};
+			//Start the Player 
 			$(document).ready(function() {
 				$('.valiant').Valiant360({
 					clickAndDrag: true,
-                    crossOrigin: 'anonymous', 
-                    
+					keyboardControls: true, 
+                    crossOrigin: 'anonymous',
+                    hideControls: 'false', 
+                    aut
 				});
 
 			});
 
-		</script>
+			//Sample the .lat and .lon positions every 100ms 
+			var interval = setInterval(function(){
 
-		<script>
+			    // for 30 seconds
+			    if (Date.now() - started > 30000) {
+			    //make chart showing X and Y coordinates #
+			    var x = new Chart(document.getElementById("myChart1"), {
+				   type: 'scatter',
+				   data: {
+				      datasets: [{
+				         label: "First 2 minutes",
+				         data: [{
+				            x: 0,
+				            y: 5
+				         }, {
+				            x: 5,
+				            y: 10
+				         }, {
+				            x: 8,
+				            y: 5
+				         }, {
+				            x: 15,
+				            y: 0
+				         }],
+				      }]
+				   },
+				   options: {
+				      responsive: true
+				   }
+				}); 
+			    } else {
+
+			    	//append current lat and long to Data
+			    	playerData.latArray += playerData.lat;
+			    	playerData.lonArray += playerData.lon; 
+			    }
+			 }, 100);
+
 
 		</script>
+<!-- 		Load Chart.js and make div  -->
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.min.js"></script>
+		<canvas id="myChart1"></canvas>
+
 	</body>
 </html>
