@@ -26,6 +26,7 @@
 		<script type="text/javascript">
 			// Variable for storing data
 			var playerData = {};
+			var formatedData = [];
 			playerData.latArray = [];
 			playerData.lonArray = [];
 			//Start the Player 
@@ -40,46 +41,43 @@
 			});
 
 			//Sample the .lat and .lon positions every 100ms 
+			var chartFlag = false; 
 			var started = Date.now();
 			var interval = setInterval(function(){
 
 			    // for 30 seconds
 			    if (Date.now() - started > 30000) {
-			 //    //make chart showing X and Y coordinates #
-			 //    var x = new Chart(document.getElementById("myChart1"), {
-				//    type: 'scatter',
-				//    data: {
-				//       datasets: [{
-				//          label: "First 2 minutes",
-				//          data: [{
-				//             x: 0,
-				//             y: 5
-				//          }, {
-				//             x: 5,
-				//             y: 10
-				//          }, {
-				//             x: 8,
-				//             y: 5
-				//          }, {
-				//             x: 15,
-				//             y: 0
-				//          }],
-				//       }]
-				//    },
-				//    options: {
-				//       responsive: true
-				//    }
-				// }); 
 
+			    	chartFlag = true
 			    } else {
 
 			    	//append current lat and long to Data
 			    	playerData.latArray.push(playerData.lat);
 			    	playerData.lonArray.push(playerData.lon); 
+
+			    	//formated data for the chart 
+			    	formatedData.push({
+			    		x: playerData.lat,
+			    		y: playerData.lon
+			    	});
 			    }
 			 }, 100);
 
+		if (chartFlag == true){
 
+			var x = new Chart(document.getElementById("myChart1"), {
+			   type: 'scatter',
+			   data: {
+			      datasets: [{
+			         label: "Test",
+			         data: formatedData,
+			      }]
+			   },
+			   options: {
+			      responsive: true
+			   }
+			});
+		};
 		</script>
 <!-- 		Load Chart.js and make div  -->
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.min.js"></script>
