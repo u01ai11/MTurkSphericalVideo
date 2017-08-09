@@ -683,6 +683,10 @@ three.js r65 or higher
             }
 
             this.render();
+
+            //add the coordinates to player data variable
+            playerData.lon = this._lon
+            playerData.lat = this._lat
         },
 
         render: function() {
