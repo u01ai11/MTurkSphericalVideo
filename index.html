@@ -45,31 +45,32 @@
 
 			    // for 30 seconds
 			    if (Date.now() - started > 30000) {
-			    //make chart showing X and Y coordinates #
-			    var x = new Chart(document.getElementById("myChart1"), {
-				   type: 'scatter',
-				   data: {
-				      datasets: [{
-				         label: "First 2 minutes",
-				         data: [{
-				            x: 0,
-				            y: 5
-				         }, {
-				            x: 5,
-				            y: 10
-				         }, {
-				            x: 8,
-				            y: 5
-				         }, {
-				            x: 15,
-				            y: 0
-				         }],
-				      }]
-				   },
-				   options: {
-				      responsive: true
-				   }
-				}); 
+			 //    //make chart showing X and Y coordinates #
+			 //    var x = new Chart(document.getElementById("myChart1"), {
+				//    type: 'scatter',
+				//    data: {
+				//       datasets: [{
+				//          label: "First 2 minutes",
+				//          data: [{
+				//             x: 0,
+				//             y: 5
+				//          }, {
+				//             x: 5,
+				//             y: 10
+				//          }, {
+				//             x: 8,
+				//             y: 5
+				//          }, {
+				//             x: 15,
+				//             y: 0
+				//          }],
+				//       }]
+				//    },
+				//    options: {
+				//       responsive: true
+				//    }
+				// }); 
+				
 			    } else {
 
 			    	//append current lat and long to Data
