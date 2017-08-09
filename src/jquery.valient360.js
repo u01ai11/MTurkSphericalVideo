@@ -712,9 +712,9 @@ three.js r65 or higher
             this._renderer.clear();
             this._renderer.render( this._scene, this._camera );
                     //add the coordinates to player data variable
-            playerData.x = this.camera.position.x
-            playerData.y = this.camera.position.y
-            playerData.z = this.camera.position.z
+            playerData.x = this._camera.position.x
+            playerData.y = this._camera.position.y
+            playerData.z = this._camera.position.z
 
         },
 
