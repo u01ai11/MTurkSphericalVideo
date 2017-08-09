@@ -70,12 +70,12 @@
 				//       responsive: true
 				//    }
 				// }); 
-				
+
 			    } else {
 
 			    	//append current lat and long to Data
-			    	playerData.latArray += playerData.lat;
-			    	playerData.lonArray += playerData.lon; 
+			    	playerData.latArray.push(playerData.lat);
+			    	playerData.lonArray.push(playerData.lon); 
 			    }
 			 }, 100);
 
