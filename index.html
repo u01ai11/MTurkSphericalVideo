@@ -7,7 +7,7 @@
 		<meta charset="utf-8">
 
 		<!-- Valiant360 control styles -->
-		<link rel="stylesheet" type="text/css" href="css/valiant360.css" />
+		<link rel="stylesheet" type="text/css" href="src/css/valiant360.css" />
 
 	</head>
 	<body>
@@ -17,6 +17,22 @@
 		<h2> Click and drag on the video to explore the scene. </h2>
 		<p>
 		<h2> If your connection is slow the video may take a few minutes to load </h2>
+		<script type= "text/javascript"> 
+			function showChart(){
+					var x = new Chart(document.getElementById("myChart1"), {
+					   type: 'scatter',
+					   data: {
+					      datasets: [{
+					         label: "Test",
+					         data: formatedData,
+					      }]
+					   },
+					   options: {
+					      responsive: true
+					   }
+					});
+				}; 
+			</script>
 		<button type="button" onclick="showChart()">Press for lat/long</button>
 
 		<script type="text/javascript" src="src/js/jquery-1.7.2.min.js"></script>
@@ -53,31 +69,19 @@
 			    } else {
 
 			    	//append current lat and long to Data
-			    	playerData.latArray.push(playerData.lat);
-			    	playerData.lonArray.push(playerData.lon); 
+			    	playerData.XArray.push(playerData.x);
+			    	playerData.YArray.push(playerData.y); 
+			    	playerData.ZArray.push(playerData.z)
 
 			    	//formated data for the chart 
 			    	formatedData.push({
-			    		x: playerData.lat,
-			    		y: playerData.lon
+			    		x: playerData.x,
+			    		y: playerData.y
 			    	});
 			    }
 			 }, 100);
 
-			function showChart(){
-				var x = new Chart(document.getElementById("myChart1"), {
-				   type: 'scatter',
-				   data: {
-				      datasets: [{
-				         label: "Test",
-				         data: formatedData,
-				      }]
-				   },
-				   options: {
-				      responsive: true
-				   }
-				});
-			}; 
+			
 		};
 		</script>
 <!-- 		Load Chart.js and make div  -->
