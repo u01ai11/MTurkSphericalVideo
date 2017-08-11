@@ -1,4 +1,4 @@
-function myFunc(input) {
+function cart2sphere3D(input) {
   x = input.Xarray
   y = input.Zarray
   z = input.Yarray
