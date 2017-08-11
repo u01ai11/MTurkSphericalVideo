@@ -21,5 +21,6 @@ function cart2sphere3D(input) {
     input.Rarray.push(r)
     input.Oarray.push(o)
     input.OmegaArray.push(omega)
+  };
  
  };
