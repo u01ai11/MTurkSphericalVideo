@@ -1,7 +1,7 @@
 function cart2sphere3D(input) {
-  x = input.Xarray
-  y = input.Zarray
-  z = input.Yarray
+  x = input.XArray
+  y = input.ZArray
+  z = input.YArray
   
   input.Rarray = []
   input.Oarray = []
