@@ -17,7 +17,20 @@
 		<h2> Click and drag on the video to explore the scene. </h2>
 		<p>
 		<h2> If your connection is slow the video may take a few minutes to load </h2>
+		<script type="text/javascript" src="cartesian2spherical3D.js"></script>
 		<script type= "text/javascript"> 
+			
+			//convert to spherical coords 
+			cart2sphere3D(playerData)
+			
+			//loop through new spherical coord
+			for (i = 0; i < playerData.Rarray.length; i++) {
+				formatedData.push({
+					x: playerData.Oarray[i], 
+					y: playerData.OmegaArray[i]
+					})
+				}
+			};
 			function showChart(){
 					var x = new Chart(document.getElementById("myChart1"), {
 					   type: 'scatter',
@@ -74,11 +87,6 @@
 			    	playerData.YArray.push(playerData.y); 
 			    	playerData.ZArray.push(playerData.z)
 
-			    	//formated data for the chart 
-			    	formatedData.push({
-			    		x: playerData.x,
-			    		y: playerData.y
-			    	});
 			    }
 			 }, 100);
 
