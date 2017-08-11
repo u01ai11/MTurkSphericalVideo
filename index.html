@@ -21,13 +21,15 @@
 		<script type= "text/javascript"> 
 			
 			function showChart(){
+					//reset chart formatted data 
+					var formatedData = [];
 					//convert to spherical coords 
 					cart2sphere3D(playerData)
 					//loop through new spherical coord and take last 30 seconds
 					for (i = 0; i < 300; i++) {
 						formatedData.push({
-							x: playerData.Oarray[playerData.Oarray.length-i], 
-							y: playerData.OmegaArray[playerData.OmegaArray.length-i]
+							x: playerData.ThetaArray[playerData.ThetaArray.length-i], 
+							y: playerData.PhiArray[playerData.PhiArray.length-i]
 							})
 					};
 					var x = new Chart(document.getElementById("myChart1"), {
@@ -55,7 +57,6 @@
 		<script type="text/javascript">
 			// Variable for storing data
 			var playerData = {};
-			var formatedData = [];
 			playerData.XArray = [];
 			playerData.YArray = [];
 			playerData.ZArray = [];
