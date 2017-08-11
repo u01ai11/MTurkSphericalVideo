@@ -20,18 +20,16 @@
 		<script type="text/javascript" src="cartesian2spherical3D.js"></script>
 		<script type= "text/javascript"> 
 			
-			//convert to spherical coords 
-			cart2sphere3D(playerData)
-			
-			//loop through new spherical coord
-			for (i = 0; i < playerData.Rarray.length; i++) {
-				formatedData.push({
-					x: playerData.Oarray[i], 
-					y: playerData.OmegaArray[i]
-					})
-			};
-
 			function showChart(){
+					//convert to spherical coords 
+					cart2sphere3D(playerData)
+					//loop through new spherical coord
+					for (i = 0; i < playerData.Rarray.length; i++) {
+						formatedData.push({
+							x: playerData.Oarray[i], 
+							y: playerData.OmegaArray[i]
+							})
+					};
 					var x = new Chart(document.getElementById("myChart1"), {
 					   type: 'scatter',
 					   data: {
