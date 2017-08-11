@@ -23,11 +23,11 @@
 			function showChart(){
 					//convert to spherical coords 
 					cart2sphere3D(playerData)
-					//loop through new spherical coord
-					for (i = 0; i < playerData.Rarray.length; i++) {
+					//loop through new spherical coord and take last 30 seconds
+					for (i = 0; i < 3000; i++) {
 						formatedData.push({
-							x: playerData.Oarray[i], 
-							y: playerData.OmegaArray[i]
+							x: playerData.Oarray[-i], 
+							y: playerData.OmegaArray[-i]
 							})
 					};
 					var x = new Chart(document.getElementById("myChart1"), {
@@ -71,12 +71,11 @@
 			});
 
 			//Sample the .lat and .lon positions every 100ms 
-			var chartFlag = false; 
 			var started = Date.now();
 			var interval = setInterval(function(){
 
-			    // for 30 seconds
-			    if (Date.now() - started > 30000) {
+			    // for 30 minutes
+			    if (Date.now() - started > 3000000) {
 
 			    } else {
 
