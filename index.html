@@ -24,10 +24,10 @@
 					//convert to spherical coords 
 					cart2sphere3D(playerData)
 					//loop through new spherical coord and take last 30 seconds
-					for (i = 0; i < 3000; i++) {
+					for (i = 0; i < 300; i++) {
 						formatedData.push({
-							x: playerData.Oarray[-i], 
-							y: playerData.OmegaArray[-i]
+							x: playerData.Oarray[playerData.Oarray.length-i], 
+							y: playerData.OmegaArray[plyerDara.OmegaArray.length-i]
 							})
 					};
 					var x = new Chart(document.getElementById("myChart1"), {
