@@ -8,13 +8,13 @@ function cart2sphere3D(input) {
   input.PhiArray = []
 
   //Convert coords
-//r = sqrt(x * x + y * y + z * z)
-//long = acos(x / sqrt(x * x + y * y)) * (y < 0 ? -1 : 1)
-//lat = acos(z / r)
+  //Radius = sqrt(x**2 + y**2 + z**2)
+  //Inclination = arcos(z/(x**2 + y**2 + z**2))
+  //Azimuth = arctan(y/x)
   for (i = 0; i < x.length; i++) {
     Rad = Math.sqrt( x[i]**2 + y[i]**2 + z[i]**2)
-    Theta = Math.acos( (x[i]/Math.sqrt(x[i]**2 + y[i]**2)) *(y[i] < 0 ? -1: 1) )
-    Phi= Math.atan(z[i]/Rad)
+    Theta = Math.acos(z[i]/Rad)
+    Phi = Math.atan(y[i]/x[i])
     
     //append to lists 
     input.RadArray.push(Rad)
