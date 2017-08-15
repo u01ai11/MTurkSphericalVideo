@@ -13,7 +13,7 @@ function cart2sphere3D(input) {
   //Azimuth = arctan(y/x)
   for (i = 0; i < x.length; i++) {
     Rad = Math.sqrt( x[i]**2 + y[i]**2 + z[i]**2)
-    Theta = Math.acos(z[i]\Rad)
+    Theta = Math.acos(z[i]/Rad)
     Phi = Math.atan(y[i]/x[i])
     
     //append to lists 
