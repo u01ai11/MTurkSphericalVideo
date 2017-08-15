@@ -14,7 +14,7 @@ function cart2sphere3D(input) {
   for (i = 0; i < x.length; i++) {
     Rad = Math.sqrt( x[i]**2 + y[i]**2 + z[i]**2)
     Theta = Math.acos( (x[i]/Math.sqrt(x[i]**2 + y[i]**2)) *(y[i] < 0 ? -1: 1) )
-    Lat = Math.atan(z[i]/r)
+    Lat = Math.atan(z[i]/Rad)
     
     //append to lists 
     input.RadArray.push(Rad)
